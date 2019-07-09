@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'homes#welcome'
+
+  # routes for Google authentication
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 end
