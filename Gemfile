@@ -22,6 +22,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop', require: false
+  gem 'simple_form'
 end
 
 group :development do
