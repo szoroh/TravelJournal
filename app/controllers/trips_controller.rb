@@ -5,6 +5,10 @@ class TripsController < ApplicationController
     @trip_form = TripForm.new
   end
 
+  def index
+    @trips = Trip.all
+  end
+
   def create
     @trip_form = TripForm.new(trip_params)
 
@@ -18,6 +22,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip_form).permit(:note).merge(user_id: current_user.id)
+    params.require(:trip_form).permit(:note, :city_name).merge(user_id: current_user.id)
   end
 end
