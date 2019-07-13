@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Trip, type: :model do
-  let(:trip) { create(:trip, user: user) }
   let(:user) { create(:user) }
+  let(:city) { create(:city, trip: trip) }
+  let(:trip) { create(:trip, user: user) }
 
   describe 'new trip' do
     context 'with correct params' do

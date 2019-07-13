@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # routes for Google authentication
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :trips, only: [:new, :create]
+  resources :trips, only: [:new, :create, :index]
 
   authenticated do
     root 'trips#new'
