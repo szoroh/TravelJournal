@@ -4,6 +4,7 @@ RSpec.describe Trip, type: :model do
   let(:user) { create(:user) }
   let(:city) { create(:city, trip: trip) }
   let(:trip) { create(:trip, user: user) }
+  let(:weather) { create(:weather, trip: trip) }
 
   describe 'new trip' do
     context 'with correct params' do

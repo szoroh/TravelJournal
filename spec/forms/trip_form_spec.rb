@@ -7,7 +7,8 @@ RSpec.describe TripForm do
     {
       note: 'aaa',
       user_id: 1,
-      city_name: 'Warsaw'
+      city_name: 'Warsaw',
+      temperature: 21
     }
   end
 
@@ -34,6 +35,13 @@ RSpec.describe TripForm do
   context 'when city name is nil' do
     it 'is invalid' do
       subject.city_name = nil
+      expect(subject).to be_invalid
+    end
+  end
+
+  context 'when temperature is nil' do
+    it 'is invalid' do
+      subject.temperature = nil
       expect(subject).to be_invalid
     end
   end

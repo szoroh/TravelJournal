@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_12_173410) do
+ActiveRecord::Schema.define(version: 2019_07_14_011122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 2019_07_12_173410) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "city_id"
+    t.bigint "weather_id"
     t.index ["city_id"], name: "index_trips_on_city_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
+    t.index ["weather_id"], name: "index_trips_on_weather_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,10 +50,11 @@ ActiveRecord::Schema.define(version: 2019_07_12_173410) do
   end
 
   create_table "weathers", force: :cascade do |t|
-    t.float "temperature"
+    t.integer "temperature"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "trips", "cities"
+  add_foreign_key "trips", "weathers"
 end
