@@ -1,34 +1,24 @@
 class TripsController < ApplicationController
-  before_action :authenticate_user!
-
   def new
     @trip_form = TripForm.new
   end
 
   def index
-    @trips = Trip.all
+    @users_trips = current_user.trips.all
   end
 
   def edit
     @trip = Trip.find(params[:id])
-
   end
 
   def update
-    #TODO edit from index view
     @trip = Trip.find(params[:id])
 
-    if @trip.update(trip_params)
-      redirect_to @trip
+    if @trip.update(edit_params)
+      redirect_to trips_path, notice: 'Trip successfully updated'
     else
       render :new
     end
-  end
-
-  def destroy
-    @trip = Trip.find(params[:id])
-    @trip.destroy
-    redirect_to trips_path, notice: 'Trip successfully destroyed'
   end
 
   def create
@@ -42,9 +32,20 @@ class TripsController < ApplicationController
     end
   end
 
+  def destroy
+    @trip = Trip.find(params[:id])
+    @trip.destroy
+
+    redirect_to trips_path, notice: 'Trip successfully destroyed'
+  end
+
   private
 
   def trip_params
     params.require(:trip_form).permit(:note, :city_name).merge(user_id: current_user.id)
+  end
+
+  def edit_params
+    params.require(:trip).permit(:note)
   end
 end
