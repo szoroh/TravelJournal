@@ -33,3 +33,7 @@ class TripForm
     @weather = Weather.find_or_create_by(temperature: temperature)
   end
 end
+
+# Trip Form was necessary in order to avoid nested attributes - it creates an abstraction
+# layer which simplifies creation of 3 separate records with single request by use of simple_form_for
+# on just one instance variable.
