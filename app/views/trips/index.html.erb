@@ -13,7 +13,8 @@
       <tr>
         <td><%= f.created_at.strftime("%d-%m-%Y") %></td>
         <td><%= f.note %></td>
-        <td><%= f.city.name %></td>
+        <td><%= f.city.name.capitalize %></td>
+        <td><%= f.weather.temperature %></td>
       </tr>
     <% end %>
   </tbody>

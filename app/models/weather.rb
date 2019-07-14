@@ -1,5 +1,5 @@
 class Weather < ApplicationRecord
   has_many :trips
 
-  validates :weather, presence: true
+  validates :temperature, presence: true
 end
