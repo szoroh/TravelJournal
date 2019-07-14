@@ -1,0 +1,6 @@
+<h2>Please, edit your trip note</h2>
+
+<%= form_for @trip do |f| %>
+  <%= f.text_field :note  %>
+  <%= f.submit "Update note" %>
+<% end %>

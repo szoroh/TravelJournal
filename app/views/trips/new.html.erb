@@ -1,5 +1,10 @@
-<%= simple_form_for @trip_form, url: trips_path do |f| %>
-  <%= f.input :note %>
-  <%= f.input :city_name %>
-  <%= f.submit %>
-<% end %>
+<center>
+  <div class="container">
+    <%= simple_form_for @trip_form, url: trips_path do |f| %>
+      <%= f.input :city_name, placeholder: 'city',
+        hint: 'Please, enter proper city name' %>
+      <%= f.input :note, placeholder: 'note' %>
+      <%= f.submit "Create trip" %>
+    <% end %>
+  </div>
+</center>

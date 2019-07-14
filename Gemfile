@@ -17,6 +17,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'httparty'
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'semantic-ui-sass'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
