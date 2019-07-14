@@ -20,13 +20,13 @@ gem 'httparty'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'semantic-ui-sass'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop', require: false
-  gem 'simple_form'
 end
 
 group :development do
