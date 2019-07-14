@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   end
 
   def index
-    @users_trips = current_user.trips.all
+    @users_trips = current_user.trips.includes(:city, :weather)
   end
 
   def edit
