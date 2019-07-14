@@ -1,21 +1,25 @@
-<h3>Older posts</h3>
-
-<table>
+<h4>Older posts</h4>
+<table class="ui celled table">
   <thead>
     <tr>
-      <th>Created at</th>
+      <th>Date</th>
+      <th>City</th>
+      <th>Temperature</th>
       <th>Note</th>
-      <th>City name</th>
+      <%# <th>Edit</th> %>
+      <th>Delete</th>
     </tr>
   </thead>
-  <tbody>
-    <% @trips.each do |f| %>
+  <% current_user.trips.each do |f| %>
+    <tbody>
       <tr>
-        <td><%= f.created_at.strftime("%d-%m-%Y") %></td>
-        <td><%= f.note %></td>
+        <td><%= f.created_at.strftime("%d-%m-%Y")%></td>
         <td><%= f.city.name.capitalize %></td>
         <td><%= f.weather.temperature %></td>
+        <td><%= f.note %></td>
+        <%# <td><%= link_to 'Edit', edit_trip_path(f, @trip) %1> %>
+        <td><%= link_to 'Delete', trip_path(f, @trip), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
+    </tbody>
+  <% end %>
 </table>

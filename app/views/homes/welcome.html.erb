@@ -1,5 +1,9 @@
 <center>
   <div class="container center jumbotron">
-    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+    <h2>Record trips, register weather.</h2>
+      <% if user_signed_in? == false %>
+        <h4>Sign in with your Google account</h4>
+        <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+      <% end %>
   </div>
 </center>
